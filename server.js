@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename);
 
 // serve the index.html page
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "index.html"));
+    res.sendFile(path.join(__dirname, "start.html"));
 });
 
 // main proxy route
