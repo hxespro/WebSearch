@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Almendra+SC&family=Press+Start+2P&family=Tapestry&display=swap"    rel="stylesheet">
+        <title>Start WebScout</title>
+    </head>
+    <body>
+        <style>
+            .press-start-2p-regular {
+                font-family: "Press Start 2P", system-ui;
+                font-weight: 400;
+                font-style: normal;
+            }
+            body{
+                background-color: #000000;
+                
+            }
+            .begin{
+                font-size: 70px;
+                color: #04d9ff;
+                margin-top: 200px;
+                animation: open 3s, slide .7s;
+                animation-fill-mode: forwards;
+            }
+            .container{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                
+            }
+            
+            .textbox{
+                border: 1px solid white;
+                border-radius: 5px;
+                background-color: #a9a9a9;
+                padding: 8px;
+                margin-top: 50px;
+                height: 20px;
+                color: #ffffff;
+                box-shadow: 0px 0px 30px #04d9ff;
+                animation: open 3s, slide .9s;
+                animation-fill-mode: forwards;
+            }
+            .login{
+                margin-top: 20px;
+                width: 120px;
+                height: 40px;
+                background-color: #04d9ff;
+                border: 1px solid white;
+                border-radius: 50px;
+                transition: all .5s ease-in-out;
+                margin-left: 1100px;        
+                text-align: middle;
+                padding-top: 20px;
+                padding-left: 65px;
+                color: #ffffff;
+                font-size: 20px;
+                animation: open 3s;
+            }
+            .login:hover{
+                cursor: pointer;
+                box-shadow: 5px 9px 15px #04d9ff;
+                transform: translateX(-5px);
+            }
+            @keyframes open{
+                0%{opacity: 0;}
+                100%{opacity: 1;}
+            }
+            @keyframes slide{
+                0%{transform: translateY(30px);}
+                100%{transform: translateY(-30px);}
+            }
+        </style>
+        <div class="container">
+            <div class="login">Log In</div>
+            <div class="begin press-start-2p-regular">START</div>
+            <input type="text" class="textbox" id="text" placeholder="Type URL...">
+        </div>
+    </body>
+</html>

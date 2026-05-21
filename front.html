@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Almendra+SC&family=Press+Start+2P&family=Tapestry&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <style>
+            body{
+                background-color:#000000;
+                
+            }
+            .press-start-2p-regular {
+                font-family: "Press Start 2P", system-ui;
+                font-weight: 400;
+                font-style: normal;
+            }
+
+            
+            .welcome{
+                font-size: 100px;
+                color: #04D9FF;
+                margin-top: 100px;
+            }
+
+            .container{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .button{
+                background-color: #04d9ff;
+                border: 1px solid white;
+                transition: all .5s ease-in-out;
+                width: 150px;
+                height: 50px;
+                margin-top: 40px;
+                border-radius: 10px;
+                color: #ffffff;
+                font-size: 20px;
+                
+                
+            }
+            .button:hover{
+                box-shadow: 7px 10px 15px #04d9ff;
+                cursor: pointer;
+                transform: translateX(-5px);
+            }
+            .buttons{
+                display: flex;
+                gap: 50px;
+            }
+            .login{
+                margin-top: 20px;
+                width: 120px;
+                height: 40px;
+                background-color: #04d9ff;
+                border: 1px solid white;
+                border-radius: 50px;
+                transition: all .5s ease-in-out;
+                margin-left: 1100px;        
+                text-align: middle;
+                padding-top: 20px;
+                padding-left: 65px;
+                color: #ffffff;
+                font-size: 20px;
+            }
+            .login:hover{
+                cursor: pointer;
+                box-shadow: 5px 9px 15px #04d9ff;
+                transform: translateX(-5px);
+            }
+            
+
+
+            
+        </style>
+
+        <div class="container">
+            <div class="login">Log In</div>
+            <div class="welcome press-start-2p-regular">WELCOME</div>
+            <div class="buttons">
+                <a href="file:///media/fuse/drivefs-c80aaf46e227acb74b246bccd0d1a0ff/root/start.html"><button class="start button">Start</button></a>
+                <button class="games button">Games</button>
+                <button class="links button">Links</button>
+            </div>
+        </div>
+    </body>
+</html>
