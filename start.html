@@ -3,8 +3,8 @@
     <head>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Almendra+SC&family=Press+Start+2P&family=Tapestry&display=swap"    rel="stylesheet">
-        <title>Start WebScout</title>
+        <link href="https://fonts.googleapis.com/css2?family=Almendra+SC&family=Press+Start+2P&family=Tapestry&display=swap" rel="stylesheet">
+        <title>Start WebSearch</title>
     </head>
     <body>
         <style>
@@ -15,7 +15,9 @@
             }
             body{
                 background-color: #000000;
-                
+            }
+            a{
+                text-decoration: none;
             }
             .begin{
                 font-size: 70px;
@@ -29,20 +31,19 @@
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                
             }
-            
             .textbox{
                 border: 1px solid white;
                 border-radius: 5px;
                 background-color: #a9a9a9;
-                padding: 8px;
-                margin-top: 50px;
-                height: 20px;
+                padding-left: 8px;
+                padding-right: 8px;
+                height: 40px;
                 color: #ffffff;
                 box-shadow: 0px 0px 30px #04d9ff;
                 animation: open 3s, slide .9s;
                 animation-fill-mode: forwards;
+                margin-top: 50px;
             }
             .login{
                 margin-top: 20px;
@@ -73,11 +74,49 @@
                 0%{transform: translateY(30px);}
                 100%{transform: translateY(-30px);}
             }
+            .do{
+                background-color: #04d9ff;
+                border: 1px solid white;
+                border-radius: 10px;
+                width: 90px;
+                height: 40px;
+
+                /* FIX: center button text vertically + horizontally */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 50px;
+                transition: all .5s ease-in-out;
+                animation: open 3s, slide .9s;
+                animation-fill-mode: forwards;
+            }
+            .do:hover{
+                cursor: pointer;
+                box-shadow: 5px 9px 15px #04d9ff;
+            }
+            .textbuttons{
+                display: flex;
+                gap: 20px;
+
+                /* FIX: align the input and button on the same baseline */
+                align-items: center;
+            }
         </style>
+        
         <div class="container">
-            <div class="login">Log In</div>
+            <a href="login.html"><div class="login">Log In</div></a>
             <div class="begin press-start-2p-regular">START</div>
-            <input type="text" class="textbox" id="text" placeholder="Type URL...">
+            <div class="textbuttons">
+                <input type="text"  class="textbox" id="text" placeholder="Type URL...">
+                <button class="do" onclick="go()" >Run</button>
+            </div>
         </div>
+
+        <script>
+            function go() {
+                const url = document.getElementById('text').value;
+                window.location = "/proxy?url=" + encodeURIComponent(url);
+            }
+        </script>
     </body>
 </html>
