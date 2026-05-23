@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Log in</title>
+    </head>
+    <body>
+        <style>
+            body{
+                display: flex;
+                flex-direction: column;
+                background-color: #000000;
+                align-items: center;
+            }
+            .box{
+                background-color: #dbdbdb;
+                border: 2px solid white;
+                border-radius: 10px;
+                height: 300px;
+                width: 300px;
+                margin-top: 200px;
+                padding: 10px;
+                align-items: center;
+                justify-content: center;
+                font-size: 30px;
+            }
+            .password{
+                margin-top: 50px;
+            }
+            .text{
+                border: 1px solid black;
+                border-radius: 5px;
+                height: 50px;
+                padding-left: 5px;
+                padding-right: 5px;
+                font-size: 20px;
+                width: 290px;
+                margin-top: 50px;
+            }
+            .go{
+                background-color: black;
+                border: 1px solid white;
+                border-radius: 5px;
+                width: 300px;
+                height: 40px;
+                margin-top: 35px;
+                color: white
+            }
+            .go:hover{
+                cursor: pointer;
+            }
+            
+        </style>
+
+        <div class="box">
+            <input type="text" class="username text" placeholder="Enter username" id="username">
+            <input type="password" class="password text" placeholder="Enter password" id="password">
+            <button class="go" onclick="login()">Log in</button>
+        </div>
+
+        <script>
+            function login() {
+                const user = document.getElementById("username").value;
+                const pass = document.getElementById("password").value;
+
+                // Set your correct username and password here
+                const correctUser = "cool";
+                const correctPass = "6767123456789";
+                const blank = "";
+
+        
+                if (user === correctUser && pass === correctPass) {
+                    window.location.href = "file:///media/fuse/drivefs-c80aaf46e227acb74b246bccd0d1a0ff/root/Health/games.html"; // page to redirect to
+                } else if (pass !== correctPass && user !== correctUser){
+                    alert("Password and username are incorrect");
+                } else if (user !== correctUser){
+                    alert("Username is taken");
+                } else if (pass !== correctPass){
+                    alert("Password is incorrect");
+                }
+                
+            }
+
+        </script>
+
+    </body>
+</html>
