@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Games</title>
+    </head>
+    <body>
+        <style>
+            body{
+                display: flex;
+                flex-direction: column;
+                background-color: #000000;
+            }
+            .search-bar{
+                width: 1320px;
+                height: 50px;
+                border: 2px solid white;
+                border-radius: 10px;
+                margin: 0 auto;
+                font-size: 20px;
+                padding: 10px;
+            }
+            .row {
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+                gap: 12px;
+
+                opacity: 0;
+                transform: translateY(10px);
+                animation: fade 0.6s ease forwards;
+            }
+
+            .game{
+                width: 200px;
+                height: 100px;
+                border: 2px solid white;
+                border-radius: 10px;
+                margin-top: 20px;
+                color: white;
+                font-size: 20px;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                padding: 5px;
+                transition: all .5s ease-in-out;
+                text-align: middle;
+                opacity: 0;
+                text-align: center;
+                flex-direction: column;
+                animation: fade .5s forwards;
+            }
+
+            .game:hover{
+                cursor: pointer;
+                box-shadow: 5px 9px 15px #04d9ff;
+            }
+
+            @keyframes fade {
+                from {
+                    opacity: 0;
+                    transform: translateY(10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .rows-wrapper > .row:nth-child(1) { animation-delay: 0s; }
+            .rows-wrapper > .row:nth-child(2) { animation-delay: .1s; }
+            .rows-wrapper > .row:nth-child(3) { animation-delay: .2s; }
+            .rows-wrapper > .row:nth-child(4) { animation-delay: .3s; }
+            .rows-wrapper > .row:nth-child(5) { animation-delay: .4s; }
+            .rows-wrapper > .row:nth-child(6) { animation-delay: .5s; }
+            .rows-wrapper > .row:nth-child(7) { animation-delay: .6s; }
+            .rows-wrapper > .row:nth-child(8) { animation-delay: .7s; }
+            .rows-wrapper > .row:nth-child(9) { animation-delay: .8s; }
+            .rows-wrapper > .row:nth-child(10) { animation-delay: .9s; }
+            .rows-wrapper > .row:nth-child(11) { animation-delay: 1s; }
+            .rows-wrapper > .row:nth-child(12) { animation-delay: 1.1s; }
+            .rows-wrapper > .row:nth-child(13) { animation-delay: 1.2s; }
+            .rows-wrapper > .row:nth-child(14) { animation-delay: 1.3s; }
+            .rows-wrapper > .row:nth-child(15) { animation-delay: 1.4s; }
+            .rows-wrapper > .row:nth-child(16) { animation-delay: 1.5s; }
+            .rows-wrapper > .row:nth-child(17) { animation-delay: 1.6s; }
+            .rows-wrapper > .row:nth-child(18) { animation-delay: 1.7s; }
+            .rows-wrapper > .row:nth-child(19) { animation-delay: 1.8s; }
+            .rows-wrapper > .row:nth-child(20) { animation-delay: 1.9s; }
+            .rows-wrapper > .row:nth-child(21) { animation-delay: 2s; }
+            .rows-wrapper > .row:nth-child(22) { animation-delay: 2.1s; }
+            .rows-wrapper > .row:nth-child(23) { animation-delay: 2.2s; }
+
+            .no-anim .game {
+                animation: none !important;
+                transition: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        </style>
+
+        <input type="text" placeholder="Search games..." class="search-bar" id="search-bar">
+
+        <div class="rows-wrapper">
+        <div class="row-one row">
+            <div class="game paperio">A Dark Room</div>
+            <div class="game airlinetycoon">Airplane Tycoon</div>
+            <div class="game amongus">Among Us</div>
+            <div class="game angrybirds">Angry Birds</div>
+            <div class="game aquaparkio">Aquapark.io</div>
+            <div class="game asteroids">Asteroids</div>
+        </div>
+        <div class="row-two row">
+            <div class="game aviamasters">AviaMasters</div>
+            <div class="game backrooms">Backrooms</div>
+            <div class="game baldisbasics">Baldi's Basics</div>
+            <div class="game bananasimulator">Banana Simulator</div>
+            <div class="game barryhasasecret">Barry Has a Secret</div>
+            <div class="game basketrandom">Basket Random</div>
+        </div>
+        <div class="row-three row">
+            <div class="game battlekarts">Battle Karts</div>
+            <div class="game bigtowertinysquare">Big Tower Tiny Square</div>
+            <div class="game bitlife">Bitlife</div>
+            <div class="game blockblast">Block Blast</div>
+            <div class="game blumgirocket">Blumgi Rocket</div>
+            <div class="game bottlejump">Bottle Jump 3d</div>
+            
+        </div>
+            
+        <div class="row-four row">
+            <div class="game burgerandfrights">Burger and Frights</div>
+            <div class="game capybaraclicker">Capybara Clicker</div>
+            <div class="game cavestory">Cave Story</div>
+            <div class="game celeste">Celeste 2</div>
+            <div class="game clusterrush">Cluster Rush</div>
+            <div class="game cookieclicker">Cookie Clicker</div>
+        </div>
+        <div class="row-five row">
+            <div class="game crazycattle">Crazy Cattle 3d</div>
+            <div class="game crazychickens">Crazy Chickens 3d</div>
+            <div class="game crossyroad">Crossy Road</div>
+            <div class="game cuttherope">Cut the Rope</div>
+            <div class="game dadish">Dadish</div>
+            <div class="game dasharena">Dash Arena</div>
+        </div>
+        <div class="row-six row">
+            <div class="game deltarune">Delta Rune</div>
+            <div class="game dogeminer">Doge Miner</div>
+            <div class="game dogeminertwo">Doge Miner 2</div>
+            <div class="game doodlejump">Doodle Jump</div>
+            <div class="game doomzio">Doomz.io</div>
+            <div class="game drawtheline">Draw the Line</div>
+        </div>
+        <div class="row-seven row">
+            <div class="game driftboss">Drift Boss</div>
+            <div class="game drivemad">Drive Mad</div>
+            <div class="game elasticface">Elastic Face</div>
+            <div class="game escaperoad">Escape Road</div>
+            <div class="game escaperoadtwo">Escape Road 2</div>
+            <div class="game evolution">Evolution</div>
+        </div>
+        <div class="row-eight row">
+            <div class="game fallguys">Fall Guys</div>
+            <div class="game fashionbattle">Fashion Battle</div>
+            <div class="game fireboyandwatergirl">Fire Boy and Water Girl 2</div>
+            <div class="game fisheatgettingbig">Fish Eat Getting Big</div>
+            <div class="game fnae">Five Nights at Epstein's</div>
+            <div class="game fnaf">Five Nights at Freddy's</div>
+        </div>
+        <div class="row-nine row">
+            <div class="game fortzone">Fortzone Battle Royale</div>
+            <div class="game fruitninja">Fruit Ninja</div>
+            <div class="game funnyshooter">Funny Shooter 2</div>
+            <div class="game geometrydash">Geometry Dash Lite</div>
+            <div class="game gladihoppers">Gladihoppers</div>
+            <div class="game golddigger">Gold Digger FRVR</div>
+        </div>
+        <div class="row-ten row">
+            <div class="game gorillatag">Gorilla Tag</div>
+            <div class="game granny">Granny</div>
+            <div class="game grannytwo">Granny 2</div>
+            <div class="game growmi">Growmi</div>
+            <div class="game gunspin">Gun Spin</div>
+            <div class="game hauntedschool">Haunted School</div>
+        </div>
+        <div class="row-eleven row">
+            <div class="game heist">HEI$T</div>
+            <div class="game helixjump">Helix Jump</div>
+            <div class="game holio">Hole.io</div>
+            <div class="game houseofhazards">House of Hazards</div>
+            <div class="game icefishing">Ice Fishing</div>
+            <div class="game idlebreakout">Idle Breakout</div>
+        </div>
+        <div class="row-twelve row">
+            <div class="game idleminertycoon">Idle Miner Tycoon</div>
+            <div class="game infinitecraft">Infinite Craft</div>
+            <div class="game ironsnout">Iron Snout</div>
+            <div class="game jellytruck">Jelly Truck</div>
+            <div class="game jetpackjoyride">Jetpack Joyride</div>
+            <div class="game justfalllol">Just Fall.lol</div>
+        </div>
+        <div class="row-thirteen row">
+            <div class="game karatebros">Karate Bros</div>
+            <div class="game kirbysoftandwet">Kirby Soft and Wet</div>
+            <div class="game konkrio">Konkr.io</div>
+            <div class="game kourio ">Kour.io</div>
+            <div class="game leveldevil">Level Devil</div>
+            <div class="game leverwarriors">Lever Warriors</div>
+        </div>
+        <div class="row-fourteen row">
+            <div class="game minesweeperplus">Minesweeper Plus</div>
+            <div class="game monkeymart">Monkey Mart</div>
+            <div class="game moto">MotoX3M</div>
+            <div class="game motopoolparty">MotoX3M Pool Party</div>
+            <div class="game motospookyland">MotoX3M Spooky Land</div>
+            <div class="game motowinter">MotoX3M Winter</div>
+        </div>
+        <div class="row-fifteen row">
+            <div class="game neonblaster">Neon Blaster</div>
+            <div class="game noobminer">Noob Miner</div>
+            <div class="game nutsandbolts">Nuts and Bolts Puzzle</div>
+            <div class="game obbycart">Obby Cart</div>
+            <div class="game obbybutyoureonabike">Obby But You're On a Bike</div>
+            <div class="game ovo">OVO</div>
+        </div>
+        <div class="row-sixteen row">
+            <div class="game paperio">Paper.io</div>
+            <div class="game parkingfury">Parking Fury</div>
+            <div class="game parkingfurytwo">Parking Fury 2</div>
+            <div class="game pixelcombat">Pixel Combat 2</div>
+            <div class="game polytrack">Poly Track</div>
+            <div class="game poorbunny">Poor Bunny</div>
+        </div>
+        <div class="row-seventeen row">
+            <div class="game ragdollarchers">Ragdoll Archers</div>
+            <div class="game ragdollhit">Ragdoll Hit</div>
+            <div class="game retrobowl">Retro Bowl</div>
+            <div class="game rocketleague">Rocket League</div>
+            <div class="game rocketpult">RocketPult</div>
+            <div class="game rooftopsnipers">Rooftop Snipers</div>
+        </div>
+        <div class="row-eighteen row">
+            <div class="game runthree">Run 3</div>
+            <div class="game sandboxels">Sandboxels</div>
+            <div class="game scaryteacher">Scary Teacher 3d</div>
+            <div class="game skyriders">Sky Riders</div>
+            <div class="game slitherio">Slither.io</div>
+            <div class="game slope">Slope</div>
+        </div>
+        <div class="row-nineteen row">
+            <div class="game slopetwoplayer">Slope 2 Player</div>
+            <div class="game slopethree">Slope 3</div>
+            <div class="game smashkarts">Smash Karts</div>
+            <div class="game snowrider">Snow Rider 3d</div>
+            <div class="game soccerrandom">Soccer Random</div>
+            <div class="game spacewaves">Space Waves</div>
+        </div>
+        <div class="row-twenty row">
+            <div class="game sprunki">Sprunki</div>
+            <div class="game sprunkiclicker">Sprunki Clicker</div>
+            <div class="game stickdefenders">Stick Defenders</div>
+            <div class="game stickmanduel">Stickman Duel</div>
+            <div class="game stickmanhook">Stickman Hook</div>
+            <div class="game stonegrassmowingsimulator">Stone Grass Mowing Simulator</div>
+        </div>
+        <div class="row-twentyone row">
+            <div class="game subwaysurfersbeijing">Subway Surfers: Beijing</div>
+            <div class="game subwaysurfersiceland">Subway Surfers: Iceland</div>
+            <div class="game subwaysurfersmexico">Subway Surfers: Mexico</div>
+            <div class="game suikagame">Suika Game</div>
+            <div class="game tag">Tag</div>
+            <div class="game templerun">Temple Run 2</div>
+        </div>
+        <div class="row-twentytwo row">
+            <div class="game thereisnogame">There is No Game</div>
+            <div class="game timeshooter">Time Shooter 2</div>
+            <div class="game tinyfishing">Tiny Fishing</div>
+            <div class="game tombofthemask">Tomb of the Mask</div>
+            <div class="game tunnelrush">Tunnel Rush</div>
+            <div class="game vexsix">Vex 6</div>
+        </div>
+        <div class="row-twentythree row">
+            <div class="game vexseven">Vex 7</div>
+            <div class="game vexeight">Vex 8</div>
+            <div class="game volleyrandom">Volley Random</div>
+            <div class="game zombierush">Zombie Rush</div>
+            <div class="game tenminutes">10 Minutes Till Dawn</div>
+            <div class="game onevonelol">1v1.lol</div>
+        </div>
+        </div>
+
+<script>
+    const searchBar = document.getElementById("search-bar");
+    const rowsWrapper = document.querySelector(".rows-wrapper");
+
+    // Save original layout + original games once
+    const originalHTML = rowsWrapper.innerHTML;
+    const allGames = Array.from(document.querySelectorAll(".game"));
+
+    function restartAnimation() {
+        const rows = document.querySelectorAll(".row");
+
+        rows.forEach(row => {
+            row.style.animation = "none";
+            void row.offsetWidth;
+            row.style.animation = "";
+        });
+    }
+
+    function buildRows(games) {
+        rowsWrapper.innerHTML = "";
+
+        let row = null;
+
+        games.forEach((game, index) => {
+            if (index % 6 === 0) {
+                row = document.createElement("div");
+                row.className = "row";
+                rowsWrapper.appendChild(row);
+            }
+
+            game.style.display = "flex";
+            row.appendChild(game);
+        });
+    }
+
+    searchBar.addEventListener("input", () => {
+        const value = searchBar.value.toLowerCase().trim();
+
+        // IMPORTANT: always reset DOM first so filtering is accurate
+        if (value === "") {
+            rowsWrapper.innerHTML = originalHTML;
+            restartAnimation();
+            return;
+        }
+
+        // Always re-grab fresh game list from current DOM
+        const freshGames = Array.from(document.querySelectorAll(".game"));
+
+        const filtered = freshGames.filter(game =>
+            game.textContent.toLowerCase().includes(value)
+        );
+
+        buildRows(filtered);
+    });
+</script>
+    </body>
+</html>
