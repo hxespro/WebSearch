@@ -1,8 +1,7 @@
 import express from "express";
-import fetch from "node-fetch";
+import puppeteer from "puppeteer";
 import path from "path";
 import { fileURLToPath } from "url";
-import cheerio from "cheerio";
 
 const app = express();
 const PORT = 3000;
@@ -10,21 +9,28 @@ const PORT = 3000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Serve your start page
+let browser;
+
+// 🔥 Reuse one browser instance (important for speed)
+async function getBrowser() {
+    if (!browser) {
+        browser = await puppeteer.launch({
+            headless: "new",
+            args: [
+                "--no-sandbox",
+                "--disable-setuid-sandbox"
+            ]
+        });
+    }
+    return browser;
+}
+
+// Home page
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "start.html"));
 });
 
-// Rewrite absolute, relative, CSS, JS, and media URLs
-function rewriteUrl(base, resource) {
-    try {
-        return "/proxy?url=" + encodeURIComponent(new URL(resource, base).href);
-    } catch {
-        return resource;
-    }
-}
-
-// Main proxy route
+// 🚀 REAL BROWSER PROXY
 app.get("/proxy", async (req, res) => {
     const targetUrl = req.query.url;
 
@@ -32,55 +38,39 @@ app.get("/proxy", async (req, res) => {
         return res.status(400).send("Missing ?url=");
     }
 
+    let page;
+
     try {
-        const response = await fetch(targetUrl);
-        const contentType = response.headers.get("content-type");
-        res.set("Content-Type", contentType);
+        const browser = await getBrowser();
+        page = await browser.newPage();
 
-        // Non-HTML content (images, CSS, JS) → just stream it
-        if (!contentType.includes("text/html")) {
-            const buffer = await response.arrayBuffer();
-            return res.send(Buffer.from(buffer));
-        }
+        // Pretend to be real Chrome
+        await page.setUserAgent(
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36"
+        );
 
-        // HTML content → rewrite it
-        const html = await response.text();
-        const $ = cheerio.load(html);
+        await page.setViewport({ width: 1280, height: 800 });
 
-        // Fix links
-        $("a").each((i, el) => {
-            const href = $(el).attr("href");
-            if (href) $(el).attr("href", rewriteUrl(targetUrl, href));
+        // Go to site and wait until fully loaded
+        await page.goto(targetUrl, {
+            waitUntil: "networkidle2",
+            timeout: 30000
         });
 
-        // Fix images
-        $("img").each((i, el) => {
-            const src = $(el).attr("src");
-            if (src) $(el).attr("src", rewriteUrl(targetUrl, src));
-        });
+        // Get fully rendered page (after JS runs)
+        const html = await page.content();
 
-        // Fix scripts
-        $("script").each((i, el) => {
-            const src = $(el).attr("src");
-            if (src) $(el).attr("src", rewriteUrl(targetUrl, src));
-        });
+        await page.close();
 
-        // Fix CSS files
-        $("link").each((i, el) => {
-            const href = $(el).attr("href");
-            if (href) $(el).attr("href", rewriteUrl(targetUrl, href));
-        });
+        res.send(html);
 
-        // Fix iframes
-        $("iframe").each((i, el) => {
-            const src = $(el).attr("src");
-            if (src) $(el).attr("src", rewriteUrl(targetUrl, src));
-        });
-
-        res.send($.html());
     } catch (err) {
+        if (page) await page.close();
         res.status(500).send("Proxy error: " + err.toString());
     }
 });
 
-app.listen(PORT, () => console.log(`Proxy running → http://localhost:${PORT}`));
+// Start server
+app.listen(PORT, () => {
+    console.log(`🚀 Proxy browser running at http://localhost:${PORT}`);
+});
